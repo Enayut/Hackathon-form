@@ -7,8 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        // You can add custom colors here if needed
+      animation: {
+        'gradient-slow': 'gradient 8s ease infinite',
+        'text-shimmer': 'shimmer 2s linear infinite',
+      },
+      keyframes: {
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-100% 0' },
+          '100%': { backgroundPosition: '100% 0' },
+        },
       },
     },
   },
