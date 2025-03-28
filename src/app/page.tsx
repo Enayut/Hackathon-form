@@ -545,7 +545,6 @@ function Teammate({
   maxTeamSize,
   onFinalSubmit,
   canSubmitFinal,
-  addedTeammates,
 }: TeammateProps) {
   const [teammateData, setTeammateData] = useState<TeammateData>({
     name: "",
@@ -1073,7 +1072,7 @@ function Payment({
         formData.append("upload_preset", "hackathon"); // Use your upload preset or create one in Cloudinary dashboard
         // Extract cloud name from CLOUDINARY_URL in .env
         // Format typically: cloudinary://api_key:api_secret@cloud_name
-        const cloudName = "dmracphp8"; // Extracted from your CLOUDINARY_URL
+        const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME; // Extracted from your CLOUDINARY_URL
         
         const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
           method: "POST",
@@ -1543,7 +1542,7 @@ function Payment({
 
               {selectedFile && (
                 <p className="mt-2 text-sm text-green-400">
-                  File "{selectedFile.name}" selected (
+                  File &quot;{selectedFile.name}&quot; selected (
                   {Math.round(selectedFile.size / 1024)} KB)
                 </p>
               )}
